@@ -18,8 +18,8 @@
 </template>
 <script>
 import { Notify } from 'vant';
-import { post, get } from '../../utils/request'
-import Header from '../../components/Header'
+import { post, get } from '@/utils/request'
+import Header from '@/components/Header'
 export default {
   name: "Login",
   data() {
