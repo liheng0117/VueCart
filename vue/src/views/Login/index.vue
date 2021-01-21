@@ -28,18 +28,22 @@ export default {
   },
   methods: {
     submit() {
-      let payload={
-        username:this.username,
-        pwd:this.password
-      }
-      post("http://api.baxiaobu.com/index.php/home/v1/login",payload).then(res=>{
-        if (res.status==200) {
-          Notify({ type: 'success', duration: 500, message: '登陆成功' });
-          this.$router.push('/home')
-        }else{
-          Notify({ type: 'danger', message: res.message, duration: 500 });
+      if (this.username==''||this.password=='') {
+        Notify({ type: 'danger', message: "账号或密码不能为空", duration: 500 });
+      }else{
+        let payload={
+          username:this.username,
+          pwd:this.password
         }
-      })
+        post("http://api.baxiaobu.com/index.php/home/v1/login",payload).then(res=>{
+          if (res.status==200) {
+            Notify({ type: 'success', duration: 500, message: '登陆成功' });
+            this.$router.push('/home')
+          }else{
+            Notify({ type: 'danger', message: res.message, duration: 500 });
+          }
+        })
+      }
     },
   },
   components:{
