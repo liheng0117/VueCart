@@ -38,6 +38,7 @@ export default {
         post("http://api.baxiaobu.com/index.php/home/v1/login",payload).then(res=>{
           if (res.status==200) {
             Notify({ type: 'success', duration: 500, message: '登陆成功' });
+            sessionStorage.setItem('user',true)
             this.$router.push('/home')
           }else{
             Notify({ type: 'danger', message: res.message, duration: 500 });

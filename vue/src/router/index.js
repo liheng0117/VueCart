@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { Home, Login, Reg } from './assembly'
+import { Home, Login, Reg, User, Cart } from './assembly'
 
 Vue.use(VueRouter)
 
@@ -12,6 +12,22 @@ const routes = [
       intercept:true
     },
     component: Home
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    meta:{
+      intercept:true
+    },
+    component: Cart
+  },
+  {
+    path: '/user',
+    name: 'User',
+    meta:{
+      intercept:true
+    },
+    component: User
   },
   {
     path: '/login',
